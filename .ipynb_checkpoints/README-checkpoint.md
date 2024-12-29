@@ -111,6 +111,7 @@ Thanks to [Paint-by-Example](https://github.com/Fantasy-Studio/Paint-by-Example)
 
 
 
+
 ## Citation
 
 ```
@@ -123,3 +124,38 @@ Thanks to [Paint-by-Example](https://github.com/Fantasy-Studio/Paint-by-Example)
     pages     = {7017-7026}
 }
 ```
+
+
+## Conda commands
+```
+conda env create -f environment.yml
+source activate base
+conda activate TPD
+conda deactivate
+
+conda remove --name myenv --all
+
+du -h --max-depth=1 /home/sagemaker-user
+
+```
+
+
+Troubleshoot
+
+## 1. Activate conda
+If you get error `CondaError: Run 'conda init' before 'conda activate'` when running `conda activate TPD`
+```
+source activate base
+conda activiate TPD
+
+```
+## 2. Open CV dependencies
+opencv depends on libgg. Error message (ImportError: libGL.so.1: cannot open shared object file: No such file) `sudo apt-get update && sudo apt-get install ffmpeg libsm6 libxext6  -y`
+
+
+
+
+
+Sagemaker Ram
+- Ram 4GB => not enough, got Killed when running inference, didn't run at all
+- Ram 8GB => not enough, got Killed when running inference, got to run a bit
